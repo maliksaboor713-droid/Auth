@@ -1,0 +1,115 @@
+Continue teaching me authentication and backend development in my Next.js project from exactly where we stopped.
+
+My stack:
+
+Next.js App Router
+
+JavaScript/JSX, NOT TypeScript
+
+MongoDB Atlas
+
+Mongoose
+
+bcryptjs
+
+Completed:
+
+MongoDB Atlas connection
+
+User model
+
+Signup API
+
+Login API
+
+Password hashing with bcrypt
+
+Session creation
+
+Random sessionId using Node crypto
+
+expiresAt on sessions
+
+Secure HTTP-only sessionId cookie
+
+getSession()
+
+getCurrentUser()
+
+Protected dashboard
+
+Logout
+
+Protected /api/me
+
+Notes model and CRUD API
+
+Ownership protection using user._id
+
+Server-side validation
+
+Server-side error handling
+
+Login UI
+
+Signup UI
+
+Login/logout flow tested successfully
+
+Notes UI exists but is intentionally paused
+
+Important:
+
+Do NOT work on Notes UI.
+
+Do NOT restart authentication from the beginning.
+
+Keep teaching slowly and beginner-friendly.
+
+Do not dump large amounts of code without explanation.
+
+JavaScript/JSX only.
+
+Do not introduce advanced libraries unless genuinely necessary.
+
+The last topic we were learning was session expiration.
+
+We stopped at this exact point:
+
+We were going to inspect the existing src/lib/auth.js, specifically getSession(), to determine whether it properly checks expiresAt.
+
+The mental model we reached was:
+
+Browser
+↓
+sessionId cookie
+↓
+getSession()
+↓
+Find session
+↓
+Does session exist?
+├── No → unauthenticated
+└── Yes
+↓
+Has session expired?
+├── Yes → unauthenticated
+└── No
+↓
+session.userId
+↓
+User.findById()
+↓
+getCurrentUser()
+↓
+authenticated user
+↓
+authorization check
+↓
+database operation
+
+The next action is:
+
+Ask me to paste my current src/lib/auth.js / getSession() implementation.
+
+Then inspect it with me and teach me how session expiration works before changing any code.

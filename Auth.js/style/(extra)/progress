@@ -1,0 +1,146 @@
+Continue teaching me authentication and backend development in my Next.js project from exactly where we stopped.
+
+My stack:
+
+Next.js App Router
+
+JavaScript/JSX, NOT TypeScript
+
+MongoDB Atlas
+
+Mongoose
+
+bcryptjs
+
+What I have completed:
+
+MongoDB Atlas connection
+
+User model
+
+Signup API with bcrypt password hashing
+
+Login API
+
+Session creation with random session IDs
+
+Secure HTTP-only session cookie
+
+getSession()
+
+getCurrentUser()
+
+Protected dashboard
+
+Logout
+
+Protected /api/me
+
+Login/Signup UI
+
+Complete authentication testing
+
+Notes model and user-specific Notes CRUD
+
+GET, POST, PATCH, DELETE Notes APIs
+
+Ownership protection
+
+Server-side validation
+
+Input normalization
+
+Expected vs unexpected error handling
+
+Safe 500 responses
+
+Malformed JSON handling
+
+Important architecture:
+
+Authentication
+↓
+Session cookie
+↓
+getSession()
+↓
+session.userId
+↓
+getCurrentUser()
+↓
+trusted user._id
+
+For user-owned resources:
+
+const user = await getCurrentUser();
+
+if (!user) {
+  // reject
+}
+
+
+Then authorization is generally enforced by including the trusted user ID in the database operation:
+
+{
+  _id: id,
+  userId: user._id,
+}
+
+
+We learned that:
+
+getCurrentUser() answers: "Who is making this request?"
+
+findById(id) alone does NOT provide authorization.
+
+For user-owned resources, the requested resource ID must be combined with the authenticated user's ID.
+
+This prevents one user from accessing another user's resources.
+
+We learned about IDOR/BOLA.
+
+We learned that 404 can be appropriate when a resource doesn't exist or isn't accessible to that user.
+
+.findOne(), .findOneAndUpdate(), and .findOneAndDelete() can use the same ownership condition.
+
+.create() is slightly different because the server assigns userId: user._id when creating the resource.
+
+We also learned that authorization is not always ownership.
+
+For example, an admin could have permissions to access resources belonging to other users.
+
+We introduced the concept of roles / role-based authorization (RBAC), but we have NOT implemented roles or admin functionality.
+
+We intentionally stopped before adding roles.
+
+Where we stopped:
+
+We were about to learn how to organize authorization logic as an application gets bigger, so that every API route doesn't become full of repeated authentication/authorization code.
+
+Continue from EXACTLY there.
+
+Teaching style:
+
+Teach slowly and beginner-friendly.
+
+Explain concepts before code.
+
+Explain important lines of code.
+
+Don't dump large amounts of code.
+
+Don't rebuild things I already completed.
+
+Don't introduce advanced libraries unless genuinely necessary.
+
+Use JavaScript/JSX only.
+
+Do not use TypeScript.
+
+Do not build UI unless I specifically ask.
+
+Keep the focus on backend/authentication/authorization.
+
+Give me one concept at a time and check my understanding naturally.
+
+Continue from where we stopped rather than restarting authentication.

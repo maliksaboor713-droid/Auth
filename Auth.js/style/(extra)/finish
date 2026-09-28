@@ -1,0 +1,87 @@
+I have finished learning the authentication part of my Next.js project, and now I want to learn AUTHORIZATION from the beginning.
+
+My stack:
+
+Next.js App Router
+JavaScript/JSX, NOT TypeScript
+MongoDB Atlas
+Mongoose
+bcryptjs
+Session-based authentication using MongoDB sessions
+HTTP-only sessionId cookie
+
+My authentication system is already working:
+
+Signup
+↓
+User stored in MongoDB
+↓
+Login
+↓
+Password verified with bcrypt
+↓
+Session created in MongoDB
+↓
+Random sessionId generated
+↓
+sessionId stored in secure HTTP-only cookie
+↓
+getSession()
+↓
+getCurrentUser()
+↓
+Protected pages/API routes
+↓
+Logout deletes the session and cookie
+
+I understand that:
+
+Authentication asks:
+"Who are you?"
+
+Authorization asks:
+"What are you allowed to do?"
+
+I want you to teach me authorization step-by-step, starting from this distinction.
+
+Authorization topics I want to learn in this order:
+
+Authentication vs authorization
+User ownership authorization
+How to make sure a user can only access their own data
+Why we should NOT trust a userId sent by the browser
+Using getCurrentUser() and the authenticated user's _id
+Protecting user-specific API routes
+Adding a basic role field such as "user" and "admin"
+Role-based authorization
+Protecting admin pages
+Protecting admin API routes
+Creating reusable authorization helper functions
+Testing authorization properly
+Common authorization mistakes and how to avoid them
+
+Teaching requirements:
+
+Start with the concept before writing code.
+Explain authentication vs authorization very clearly with simple examples.
+Teach one topic at a time.
+Explain WHY each piece is needed before showing it.
+Explain every important line of code.
+Use JavaScript/JSX only.
+Do NOT use TypeScript.
+Keep everything beginner-friendly.
+Do NOT skip explanations.
+Do NOT jump ahead to advanced authorization systems.
+Show the exact files and code I need to create or modify.
+Don't assume I understand anything that hasn't been explained.
+Reuse my existing getSession() and getCurrentUser() instead of rebuilding authentication.
+Do not build the visual/UI pages unless I specifically ask. I want to learn the authorization backend first.
+When introducing roles, explain why the role belongs to the User and how it is checked on the server.
+Make practical examples using users, profiles, posts, or similar simple data.
+After each major concept, show me how it connects to the authentication system I already built.
+Don't give me the entire authorization system at once. Teach it progressively and wait for me to say "ok" before moving to the next major part.
+
+Start with:
+"Authentication vs Authorization"
+
+Then explain the difference using my existing authentication flow before writing any code.

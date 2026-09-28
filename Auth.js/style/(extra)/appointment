@@ -1,0 +1,161 @@
+I have finished learning authentication and authorization in my Next.js project. Now I want to build and learn an APPOINTMENT BOOKING APPLICATION step-by-step.
+
+My stack:
+
+Next.js App Router
+JavaScript/JSX, NOT TypeScript
+MongoDB Atlas
+Mongoose
+bcryptjs
+Session-based authentication
+MongoDB sessions
+Secure HTTP-only sessionId cookie
+getSession()
+getCurrentUser()
+Role-based authorization
+
+My authentication and authorization systems are already working.
+
+Authentication flow:
+
+Signup
+↓
+User stored in MongoDB
+↓
+Login
+↓
+Password verified with bcrypt
+↓
+Session created in MongoDB
+↓
+Random sessionId generated
+↓
+HTTP-only sessionId cookie
+↓
+getSession()
+↓
+getCurrentUser()
+↓
+Protected pages/API routes
+↓
+Logout deletes session and cookie
+
+Authorization concepts I now understand:
+
+Authentication = "Who are you?"
+Authorization = "What are you allowed to do?"
+Users should only access their own data.
+We should not trust a userId sent by the browser.
+The server should get the authenticated user's identity using getCurrentUser().
+Users can have roles such as "user" and "admin"/doctor.
+Authorization checks should happen on the server.
+Protected pages and protected API routes both need authorization where appropriate.
+
+Now I want to build an appointment booking application where:
+
+PATIENT/USER:
+
+Can log in.
+Can see available doctors.
+Can choose a doctor.
+Can choose a date.
+Can choose a time.
+Can enter a reason for the appointment.
+Can book an appointment.
+Can see their own appointments.
+Can see appointment status.
+Can eventually cancel/reschedule appointments.
+
+DOCTOR/ADMIN:
+
+Can log in.
+Has an appropriate role such as "doctor" or "admin".
+Can see appointments assigned to them.
+Can see patient information needed for the appointment.
+Can change appointment status.
+Should NOT automatically be able to access another doctor's appointments unless our authorization rules allow it.
+
+Important:
+I want to LEARN while building this, not just receive finished code.
+
+Teach me progressively in this order:
+
+Understand the appointment application's requirements
+Design the data model before coding
+Decide what should be stored in the User model
+Create the Doctor/user role structure
+Design the Appointment Mongoose model
+Understand relationships between User, Doctor, and Appointment
+Create the appointment API
+Authenticate the patient before booking
+Use the authenticated user's _id instead of trusting a patientId from the browser
+Validate doctor, date, time, reason, and other required data
+Prevent invalid or conflicting appointments
+Store the appointment in MongoDB
+Let patients retrieve only their own appointments
+Let doctors retrieve only appointments they are authorized to see
+Add appointment statuses such as:
+pending
+confirmed
+completed
+cancelled
+Allow authorized doctors/admins to update appointment status
+Add cancellation
+Add rescheduling only after the basic system works
+Test the authorization rules carefully
+Only after the backend is understood, build the user-facing UI.
+
+Very important teaching requirements:
+
+Start with the CONCEPT before writing code.
+Start the appointment section by explaining exactly how an appointment system works.
+Do NOT immediately create the schema.
+First explain the requirements and data relationships.
+Teach one major concept at a time.
+Explain WHY we are making each decision.
+Explain every important line of code.
+Use JavaScript/JSX only.
+Never use TypeScript.
+Keep it beginner-friendly.
+Do not skip explanations.
+Do not assume I understand something unless we have already covered it.
+Reuse my existing authentication and authorization functions.
+Do not rebuild authentication.
+Do not jump into advanced scheduling systems, calendars, notifications, payments, email/SMS, timezone complexity, or other advanced features yet.
+Keep the first version simple and understandable.
+Do not build the visual UI until the backend concepts and APIs are understood.
+Show exact file paths whenever creating or modifying files.
+After each major step, explain how it connects to authentication and authorization.
+Give me code only after explaining what the code is supposed to accomplish.
+Don't give me the entire appointment system at once.
+Wait for me to say "ok" before moving to the next major step.
+
+Start with:
+
+"How an appointment booking system works"
+
+Explain the complete flow:
+
+Patient
+↓
+Authentication
+↓
+Choose doctor
+↓
+Choose date/time
+↓
+Server validates request
+↓
+Authorization
+↓
+Check availability/conflict
+↓
+Create Appointment
+↓
+Patient can view their appointment
+↓
+Doctor can view/manage authorized appointments
+↓
+Appointment status changes
+
+Then explain the database relationships using a simple example before creating any files or code.
